@@ -33,7 +33,7 @@
         <td>{{ mutant.notified ? 'Yes' : 'No' }}</td>
         <td><input type="checkbox" name="complete" ng-model="mutant.complete" ng-change="vm.toggleComplete(mutant)"></td>
         <td>
-          <button class="button success"><i class="fa fa-mobile fa-lg" aria-hidden="true"></i></button>
+          <button class="button success" ng-click="vm.sendText(mutant)"><i class="fa fa-mobile fa-lg" aria-hidden="true"></i></button>
           <button class="button alert" ng-click="vm.deleteMutant(mutant)"><i class="fa fa-trash-o fa-lg" aria-hidden="true"></i></button>
         </td>
       </tr>

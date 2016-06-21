@@ -9,3 +9,7 @@
 .home h4 {
   margin-bottom: 30px;
 }
+
+table button {
+  width: 3em;
+}
