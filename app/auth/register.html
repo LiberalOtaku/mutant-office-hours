@@ -1,12 +1,12 @@
 <div class="medium-6 medium-centered large-4 large-centered columns">
-  <form>
+  <form ng-submit="vm.register(vm.user)">
     <div class="column log-in-form">
       <h4 class="text-center">Sign Up</h4>
       <label>Email
-        <input type="email" placeholder="somebody@example.com">
+        <input type="email" ng-model="vm.user.email" placeholder="somebody@example.com" required="true" autofocus="true">
       </label>
       <label>Password
-        <input type="password" placeholder="Password">
+        <input type="password" ng-model="vm.user.password" placeholder="Password" required="true">
       </label>
       <p><button type="submit" class="button expanded">Sign Up</button></p>
     </div>
