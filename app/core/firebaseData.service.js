@@ -10,8 +10,8 @@
 
       var service = {
         root: root,
-        mutants: root.child('mutants'),
-        texts: root.child('texts')
+        texts: root.child('texts'),
+        users: root.child('users')
       };
 
       return service;

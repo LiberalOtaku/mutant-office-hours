@@ -5,12 +5,12 @@
     .module('mutantApp.mutantList')
     .controller('MutantListController', MutantListController);
 
-  MutantListController.$inject = ['mutantService', 'textMessageService'];
-  function MutantListController(mutantService, textMessageService) {
+  MutantListController.$inject = ['mutantService', 'textMessageService', 'user'];
+  function MutantListController(mutantService, textMessageService, user) {
     var vm = this;
 
     vm.addMutant = addMutant;
-    vm.mutants = mutantService.mutants;
+    vm.mutants = mutantService.mutantsByUser(user.uid);
     vm.newMutant = new mutantService.Mutant();
     vm.deleteMutant = deleteMutant;
     vm.toggleComplete = toggleComplete;
