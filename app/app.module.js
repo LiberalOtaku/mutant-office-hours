@@ -1,18 +1,25 @@
 (function() {
   'use strict';
 
-  angular.module('mutantApp', [
-    // Angular modules
-    'ui.router',
+  angular
+    .module('mutantApp', [
+      // Angular modules
+      'ui.router',
 
-    // Third-party modules
-    'firebase',
+      // Third-party modules
+      'firebase',
 
-    // Custom modules
-    'mutantApp.home',
-    'mutantApp.mutantList',
-    'mutantApp.auth',
-    'mutantApp.core',
-    'mutantApp.layout'
-  ]);
+      // Custom modules
+      'mutantApp.home',
+      'mutantApp.mutantList',
+      'mutantApp.auth',
+      'mutantApp.core',
+      'mutantApp.layout'
+    ])
+    .config(configFunction);
+
+  configFunction.$inject = ['$urlRouterProvider'];
+  function configFunction($urlRouterProvider) {
+    $urlRouterProvider.otherwise('/');
+  }
 })();
