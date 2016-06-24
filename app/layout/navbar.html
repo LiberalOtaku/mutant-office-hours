@@ -1,4 +1,4 @@
-<div ng-controller="AuthController as vm" class="top-bar" id="main-menu">
+<div class="top-bar" id="main-menu">
   <div class="top-bar-left">
     <ul class="dropdown menu" data-dropdown-menu>
       <li><a class="menu-text" ui-sref="home">Mutant Office Hours</a></li>
@@ -6,8 +6,8 @@
   </div>
   <div class="top-bar-right">
     <ul class="menu" data-responsive-menu="drilldown medium-dropdown">
-      <li ng-hide="vm.isLoggedIn()"><a ui-sref="login">Log In</a></li>
-      <li ng-show="vm.isLoggedIn()"><a href="#" ng-click="vm.logout()">Log Out</a></li>
+      <li><a ui-sref="login" ng-hide="vm.isLoggedIn()">Log In</a></li>
+      <li><a href="#" ng-show="vm.isLoggedIn()" ng-click="vm.logout()">Log Out</a></li>
     </ul>
   </div>
 </div>
