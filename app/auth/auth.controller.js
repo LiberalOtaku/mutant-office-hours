@@ -20,9 +20,10 @@
     function register(user) {
       return authService.register(user)
         .then(function() {
-          authService.sendWelcomeEmail(user.email);
-          console.log('Registered using ' + user.email + '!');
           vm.login(user);
+        })
+        .then(function() {
+          authService.sendWelcomeEmail(user.email);
         })
         .catch(function(error) {
           console.log(error);
