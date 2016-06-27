@@ -5,8 +5,8 @@
     .module('mutantApp.auth')
     .controller('AuthController', AuthController);
 
-  AuthController.$inject = ['$state', 'authService', 'emailService'];
-  function AuthController($state, authService, emailService) {
+  AuthController.$inject = ['$state', 'authService'];
+  function AuthController($state, authService) {
     var vm = this;
 
     vm.register = register;
@@ -20,7 +20,7 @@
     function register(user) {
       return authService.register(user)
         .then(function() {
-          emailService.sendEmail(user.email);
+          authService.sendWelcomeEmail(user.email);
           console.log('Registered using ' + user.email + '!');
           vm.login(user);
         })
