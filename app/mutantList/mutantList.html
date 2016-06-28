@@ -1,29 +1,3 @@
-<div my-mutant-list-form mutants="vm.mutants"></div>
+<div my-mutant-form mutants="vm.mutants"></div>
 
-<div class="small-12 columns">
-  <table class="hover">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Phone</th>
-        <th>Topic</th>
-        <th>Notified</th>
-        <th>Complete</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr ng-repeat="mutant in vm.mutants track by $index">
-        <td>{{ mutant.name }}</td>
-        <td>{{ mutant.phone }}</td>
-        <td>{{ mutant.topic }}</td>
-        <td>{{ mutant.notified ? 'Yes' : 'No' }}</td>
-        <td><input type="checkbox" name="complete" ng-model="mutant.complete" ng-change="vm.toggleComplete(mutant)"></td>
-        <td>
-          <button class="button success" ng-click="vm.sendText(mutant)"><i class="fa fa-mobile fa-lg" aria-hidden="true"></i></button>
-          <button class="button alert" ng-click="vm.deleteMutant(mutant)"><i class="fa fa-trash-o fa-lg" aria-hidden="true"></i></button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+<div my-mutant-table mutants="vm.mutants"></div>

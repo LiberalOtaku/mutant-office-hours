@@ -3,12 +3,12 @@
 
   angular
     .module('mutantApp.mutantList')
-    .directive('myMutantListForm', myMutantListForm);
+    .directive('myMutantForm', myMutantForm);
 
-  function myMutantListForm() {
+  function myMutantForm() {
     return {
       restrict: 'AE',
-      templateUrl: 'app/mutantList/directives/mutantListForm.html',
+      templateUrl: 'app/mutantList/directives/mutantForm.html',
       controller: MutantFormController,
       controllerAs: 'vm',
       bindToController: true,
