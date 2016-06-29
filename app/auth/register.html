@@ -32,25 +32,28 @@
 
       <!-- Email errors -->
       <div
-        class="small alert callout"
-        ng-show="authForm.$submitted && authForm.email.$error.required">
-        Error: email can't be blank.
-      </div>
+        my-error-message
+        condition="authForm.$submitted && authForm.email.$error.required"
+        message="Error: email can't be blank."></div>
       <div
-        class="small alert callout"
-        ng-show="authForm.$submitted && authForm.email.$error.email">
-        Error: email incorrectly formatted.
+        my-error-message
+        condition="authForm.$submitted && authForm.email.$error.email"
+        message="Error: email incorrectly formatted.">
       </div>
 
       <!-- Password errors -->
       <div
-        class="small alert callout"
-        ng-show="authForm.$submitted && authForm.password.$error.required">
-        Error: a password is required.
+        my-error-message
+        condition="authForm.$submitted && authForm.password.$error.required"
+        message="Error: a password is required.">
       </div>
 
       <!-- Server Authentication Errors -->
-      <div class="small alert callout" ng-show="vm.error" ng-bind="vm.error"></div>
+      <div
+        my-error-var-message
+        condition="vm.error"
+        message="vm.error">
+      </div>
     </div>
   </form>
 </div>
