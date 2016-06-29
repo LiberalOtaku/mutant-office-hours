@@ -1,0 +1,59 @@
+<div class="medium-6 medium-centered large-4 large-centered columns">
+  <form ng-submit="authForm.$valid && vm.formSubmit({ user: vm.user })" name="authForm" novalidate>
+    <div class="column log-in-form">
+      <h4 class="text-center" ng-bind="vm.formName"></h4>
+
+      <label>Email
+        <input
+          type="email"
+          name="email"
+          ng-model="vm.user.email"
+          ng-model-options="{
+            updateOn: 'default blur',
+            debounce: { 'default': 1000, 'blur': 0 }
+          }"
+          placeholder="somebody@example.com"
+          required autofocus>
+      </label>
+
+      <label>Password
+        <input
+          type="password"
+          name="password"
+          ng-model="vm.user.password"
+          ng-model-options="{
+            updateOn: 'default blur',
+            debounce: { 'default': 1000, 'blur': 0 }
+          }"
+          placeholder="Password"
+          required>
+      </label>
+      <p><button type="submit" class="button expanded" ng-bind="vm.formName"></button></p>
+
+      <!-- Email errors -->
+      <div
+        my-error-message
+        condition="authForm.$submitted && authForm.email.$error.required"
+        message="Error: email can't be blank."></div>
+      <div
+        my-error-message
+        condition="authForm.$submitted && authForm.email.$error.email"
+        message="Error: email incorrectly formatted.">
+      </div>
+
+      <!-- Password errors -->
+      <div
+        my-error-message
+        condition="authForm.$submitted && authForm.password.$error.required"
+        message="Error: a password is required.">
+      </div>
+
+      <!-- Server Authentication Errors -->
+      <div
+        my-error-var-message
+        condition="vm.formError"
+        message="vm.formError">
+      </div>
+    </div>
+  </form>
+</div>
