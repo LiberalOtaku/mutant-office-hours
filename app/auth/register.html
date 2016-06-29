@@ -1,14 +1,56 @@
 <div class="medium-6 medium-centered large-4 large-centered columns">
-  <form ng-submit="vm.register(vm.user)">
+  <form ng-submit="authForm.$valid && vm.register(vm.user)" name="authForm" novalidate>
     <div class="column log-in-form">
       <h4 class="text-center">Sign Up</h4>
+
       <label>Email
-        <input type="email" ng-model="vm.user.email" placeholder="somebody@example.com" required="true" autofocus="true">
+        <input
+          type="email"
+          name="email"
+          ng-model="vm.user.email"
+          ng-model-options="{
+            updateOn: 'default blur',
+            debounce: { 'default': 1000, 'blur': 0 }
+          }"
+          placeholder="somebody@example.com"
+          required autofocus>
       </label>
+
       <label>Password
-        <input type="password" ng-model="vm.user.password" placeholder="Password" required="true">
+        <input
+          type="password"
+          name="password"
+          ng-model="vm.user.password"
+          ng-model-options="{
+            updateOn: 'default blur',
+            debounce: { 'default': 1000, 'blur': 0 }
+          }"
+          placeholder="Password"
+          required>
       </label>
       <p><button type="submit" class="button expanded">Sign Up</button></p>
+
+      <!-- Email errors -->
+      <div
+        class="small alert callout"
+        ng-show="authForm.$submitted && authForm.email.$error.required">
+        Error: email can't be blank.
+      </div>
+      <div
+        class="small alert callout"
+        ng-show="authForm.$submitted && authForm.email.$error.email">
+        Error: email incorrectly formatted.
+      </div>
+
+      <!-- Password errors -->
+      <div
+        class="small alert callout"
+        ng-show="authForm.$submitted && authForm.password.$error.required">
+        Error: a password is required.
+      </div>
+
+      <!-- Server Authentication Errors -->
+      <div class="small alert callout" ng-show="vm.error" ng-bind="vm.error"></div>
     </div>
   </form>
 </div>

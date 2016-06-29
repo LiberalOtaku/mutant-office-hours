@@ -4,24 +4,48 @@
       <h4 class="text-center">Log In</h4>
 
       <label>Email
-        <input type="email" name="email" ng-model="vm.user.email" placeholder="somebody@example.com" required autofocus>
+        <input
+          type="email"
+          name="email"
+          ng-model="vm.user.email"
+          ng-model-options="{
+            updateOn: 'default blur',
+            debounce: { 'default': 1000, 'blur': 0 }
+          }"
+          placeholder="somebody@example.com"
+          required autofocus>
       </label>
 
       <label>Password
-        <input type="password" name="password" ng-model="vm.user.password" placeholder="Password" required="true">
+        <input
+          type="password"
+          name="password"
+          ng-model="vm.user.password"
+          ng-model-options="{
+            updateOn: 'default blur',
+            debounce: { 'default': 1000, 'blur': 0 }
+          }"
+          placeholder="Password"
+          required>
       </label>
       <p><button type="submit" class="button expanded">Log In</button></p>
 
       <!-- Email errors -->
-      <div class="small alert callout" ng-show="authForm.$submitted && authForm.email.$error.required">
+      <div
+        class="small alert callout"
+        ng-show="authForm.$submitted && authForm.email.$error.required">
         Error: email can't be blank.
       </div>
-      <div class="small alert callout" ng-show="authForm.$submitted && authForm.email.$error.email">
+      <div
+        class="small alert callout"
+        ng-show="authForm.$submitted && authForm.email.$error.email">
         Error: email incorrectly formatted.
       </div>
 
       <!-- Password errors -->
-      <div class="small alert callout" ng-show="authForm.$submitted && authForm.password.$error.required">
+      <div
+        class="small alert callout"
+        ng-show="authForm.$submitted && authForm.password.$error.required">
         Error: a password is required.
       </div>
 
