@@ -6,8 +6,10 @@
   </div>
   <div class="top-bar-right">
     <ul class="menu" data-responsive-menu="drilldown medium-dropdown">
+      <li><img ng-show="vm.isLoggedIn()" src="https://www.gravatar.com/avatar/00000000000000000000000000000000?s=40&d=monsterid&f=y" alt="Avatar" /></li>
+      <li><a href="#/mutantlist" ng-show="vm.isLoggedIn()" ng-bind="vm.isLoggedIn().email"></a></li>
       <li><a ui-sref="login" ng-hide="vm.isLoggedIn()">Log In</a></li>
-      <li><a href="#" ng-show="vm.isLoggedIn()" ng-click="vm.logout()">Log Out</a></li>
+      <li><a href="#/" ng-show="vm.isLoggedIn()" ng-click="vm.logout()">Log Out</a></li>
     </ul>
   </div>
 </div>
