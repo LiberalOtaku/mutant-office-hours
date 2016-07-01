@@ -15,16 +15,16 @@
     };
   }
 
-  NavbarController.$inject = ['$state', 'authService']
-  function NavbarController($state, authService) {
+  NavbarController.$inject = ['$state', 'authService', 'hashService']
+  function NavbarController($state, authService, hashService) {
     var vm = this;
 
-    vm.logout = logout;
+    vm.logout = authService.logout;
     vm.isLoggedIn = authService.isLoggedIn;
 
-    function logout() {
-      authService.logout();
-      $state.go('home');
+    // get avatar if page refreshes
+    if (vm.isLoggedIn()) {
+      $('ul.menu img').attr({ "src": "https://www.gravatar.com/avatar/" + hashService.md5(vm.isLoggedIn().email) + "?s=40&d=monsterid&f=y" });
     }
   }
 })();
