@@ -12,6 +12,7 @@
     vm.register = register;
     vm.login = login;
     vm.error = null;
+    vm.sendPasswordResetEmail = sendPasswordResetEmail;
 
     vm.user = {
       email: '',
@@ -39,6 +40,13 @@
         })
         .catch(function(error) {
           vm.error = error;
+        });
+    }
+
+    function sendPasswordResetEmail(email) {
+      return authService.sendPasswordResetEmail(email)
+        .then(function() {
+          console.log('Email sent to ' + email + '!');
         });
     }
   }

@@ -15,7 +15,8 @@
       scope: {
         formName: '@',
         formSubmit: '&',
-        formError: '='
+        formError: '=',
+        showReset: '='
       }
     };
   }

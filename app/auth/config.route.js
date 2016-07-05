@@ -19,6 +19,12 @@
         templateUrl: 'app/auth/login.html',
         controller: 'AuthController',
         controllerAs: 'vm'
+      })
+      .state('resetPassword', {
+        url: '/reset',
+        templateUrl: 'app/auth/resetPassword.html',
+        controller: 'AuthController',
+        controllerAs: 'vm'
       });
   }
 })();

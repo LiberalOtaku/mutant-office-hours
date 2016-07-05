@@ -15,7 +15,9 @@
         login: login,
         logout: logout,
         isLoggedIn: isLoggedIn,
-        sendWelcomeEmail: sendWelcomeEmail
+        sendWelcomeEmail: sendWelcomeEmail,
+        sendPasswordResetEmail: sendPasswordResetEmail,
+        // resetPassword: resetPassword
       };
 
       return service;
@@ -44,5 +46,13 @@
           email: email,
         });
       }
+
+      function sendPasswordResetEmail(email) {
+        return auth.$sendPasswordResetEmail(email);
+      }
+
+      // function resetPassword(code, newPassword) {
+      //   return auth.$confirmPasswordReset(code, newPassword);
+      // }
     }
 })();
